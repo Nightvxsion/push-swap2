@@ -56,3 +56,68 @@ static void	sort3(t_list **stack)
 		rra(stack);
 	}
 }
+
+static void	sort4(t_list **stack_a, t_list	**stack_b)
+{
+	int	len;
+
+	if (check_sort(stack_a))
+		return;
+	len = distance(stack_a, get_min_val(stack_a, -1)); // Distancia del stack a, pero sabiendo el elemnto mas pequeño
+	if (len == 1)
+		ra(stack_a);
+	else if (len == 2)
+	{
+		ra(stack_a);
+		ra(stack_a);
+	}
+	else if (len == 3)
+		rra(stack_a);
+	pb(stack_a, stack_b); // Guardamos arista
+	sort3(stack_a); // Ordenamos los 3 elementos que quedan
+	pa(stack_a, stack_b); // Insertamos arista
+}
+
+void	sort5(t_list **stack_a, t_list **stack_b)
+{
+	int	len; // Lo mismo que en sort4 pero haciendo rra 2 veces cuando len sea 3 y en 4 un solo rra
+
+	if (check_sort(stack_a))
+		return ;
+	len = distance(stack_a, get_min_val(stack_a, -1));
+	if (len == 1)
+		ra(stack_a);
+	else if (len == 2)
+	{
+		ra(stack_a);
+		ra(stack_a);
+	}
+	else if (len == 3)
+	{
+		rra(stack_a);
+		rra(stack_a);
+	}
+	else if (len == 4)
+		rra(stack_a);
+	pa(stack_a, stack_b);
+	sort4(stack_a, stack_b);
+	pb(stack_a, stack_b);
+}
+
+void	simple_sort(t_list **stack_a, t_list **stack_b)
+{
+	int	size; // El tamaño de nodos a guardar para el sort
+
+	if (check_sort(stack_a) || ft_lstsize(*stack_a) == 0
+		|| ft_lstsize(*stack_b) == 1)
+		return ;
+	size = ft_lstsize(*stack_a);
+	if (size == 2)
+		sa(stack_a);
+	else if (size == 3)
+		sort3(stack_a);
+	else if (size == 4)
+		sort4(stack_a, stack_b);
+	else if (size == 5)
+		sort5(stack_a, stack_b);
+}

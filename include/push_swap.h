@@ -51,4 +51,8 @@ int		reverseRotate(t_list **stack);
 int		rra(t_list **stack_a);
 int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
+int		distance(t_list **stack, int index);
+void	sort5(t_list **stack_a, t_list **stack_b);
+void	simple_sort(t_list **stack_a, t_list **stack_b);
+void	radix(t_list **stack_a, t_list **stack_b);
 #endif

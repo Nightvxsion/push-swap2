@@ -60,3 +60,20 @@ void	free_stack(t_list **stack)
 	}
 	free(stack); // Liberamos EL PUNTERO de la direccion del stack
 }
+
+int	distance(t_list **stack, int index)
+{
+	t_list	*head;
+	int		distance;
+
+	distance = 0;
+	head = *stack;
+	while (head)
+	{
+		if (head->index == index)
+			return ;
+		distance++;
+		head = head->next; // Recorrer el stack nodo a nodo
+	}
+	return (distance);
+}
