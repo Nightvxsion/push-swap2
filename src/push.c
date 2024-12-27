@@ -14,27 +14,16 @@
 
 int	push(t_list **stack_src, t_list **stack_dst)
 {
-	t_list	*head_src;
-	t_list	*head_dst;
+	//t_list	*head_src;
 	t_list	*tmp;
 	
 	if (ft_lstsize(*stack_src) == 0)
 		return (-1);
 	
-	head_src = *stack_src;
-	head_dst = *stack_dst;
-	tmp = head_src;
-	head_dst = head_dst->next;
-	*stack_dst = head_dst;
-	if (!head_src) {
-		head_src = tmp; // No hay nada
-		head_src->next = NULL;
-		*stack_src = head_src;
-	}
-	else {
-		tmp->next = head_src;
-		*stack_src = tmp;
-	}
+	tmp = *stack_src; // Guarda el nodo de stack_src
+	*stack_src = (*stack_src)->next; // Avanza stack_src
+	tmp->next = *stack_dst; // Conecta el nodo movido con stack_dst
+	*stack_dst = tmp; // Actualiza stack_dst
 	return (0);
 }
 int	pa(t_list **stack_a, t_list **stack_b)

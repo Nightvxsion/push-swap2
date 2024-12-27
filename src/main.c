@@ -35,7 +35,10 @@ static void	init_of_stack(t_list **stack_a, int argc, char **argv)
 	}
 	index_of_stack(stack_a);
 	if (argc == 2)
+	{
 		ft_free(arguments);
+		free_stack(stack_a);
+	}
 }
 
 static void	choose_sort(t_list **stack_a, t_list **stack_b)
@@ -64,7 +67,7 @@ int	main(int argc, char **argv)
 	init_of_stack(stack_a, argc, argv);
 	if (check_sort(stack_a))
 	{
-		ft_err("WARNING -> Is already sorted!");
+		ft_err("WARNING -> Ya esta ordenado, gilipollas!");
 		free_stack(stack_a);
 		free_stack(stack_b);
 		return (0);

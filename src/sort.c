@@ -39,7 +39,7 @@ static void	sort3(t_list **stack)
 	next_min = get_min_val(stack, min); // El siguiente mas pequeño ignorado por min
 	if (check_sort(stack))
 		return;
-	if ((head->index == min) && head->next->index != next_min) { //Si el primer nodo tiene el valor minimo Y si el segundo nodo NO tiene el segundo negativo aplicar ra, sa, rra.
+	if (head->index == min && head->next->index != next_min) { //Si el primer nodo tiene el valor minimo Y si el segundo nodo NO tiene el segundo negativo aplicar ra, sa, rra.
 		ra(stack);
 		sa(stack);
 		rra(stack);
@@ -47,13 +47,16 @@ static void	sort3(t_list **stack)
 	else if (head->index == next_min) { // Si el primer nodo TIENE el segundo negativo y como subcaso si el segundo nodo tiene el valor negativo aplicar sa sino aplicar rra
 		if (head->next->index == min)
 			sa(stack);
-		rra(stack);
+		else
+			rra(stack);
 	}
 	else { // En esta condicion es que ya es el mas grande como subcaso tenemos que si el segundo nodo tiene el valor minimo aplicar ra y sino aplicar sa y rra
 		if (head->next->index == min)
 			ra(stack);
-		sa(stack);
-		rra(stack);
+		else {
+			sa(stack);
+			rra(stack);
+		}
 	}
 }
 
@@ -73,6 +76,8 @@ static void	sort4(t_list **stack_a, t_list	**stack_b)
 	}
 	else if (len == 3)
 		rra(stack_a);
+	if (check_sort(stack_a))
+		return;
 	pb(stack_a, stack_b); // Guardamos arista
 	sort3(stack_a); // Ordenamos los 3 elementos que quedan
 	pa(stack_a, stack_b); // Insertamos arista
@@ -82,8 +87,6 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 {
 	int	len; // Lo mismo que en sort4 pero haciendo rra 2 veces cuando len sea 3 y en 4 un solo rra
 
-	if (check_sort(stack_a))
-		return ;
 	len = distance(stack_a, get_min_val(stack_a, -1));
 	if (len == 1)
 		ra(stack_a);
@@ -99,6 +102,8 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 	}
 	else if (len == 4)
 		rra(stack_a);
+	if (check_sort(stack_a))
+		return;
 	pa(stack_a, stack_b);
 	sort4(stack_a, stack_b);
 	pb(stack_a, stack_b);
