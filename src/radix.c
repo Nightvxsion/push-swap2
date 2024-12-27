@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static int	get_max_bits(t_list	**stack)
 {
@@ -42,7 +42,7 @@ void	radix(t_list **stack_a, t_list **stack_b)
 
 	i = 0;
 	head_a = *stack_a;
-	size = ft_lstsize(stack_a);
+	size = ft_lstsize(head_a);
 	max_bit = get_max_bits(stack_a);
 	while(i < max_bit)
 	{

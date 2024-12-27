@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	ft_err(char *error)
 {
@@ -39,7 +39,7 @@ int	check_sort(t_list **lst)
 	head = *lst;
 	while (head && head->next) // Mientras exista una lista y su siguiente
 	{
-		if (head->next > head->next->value) // Si el siguiente elemento es mayor que el anterior
+		if (head->value > head->next->value) // Si el siguiente elemento es mayor que el anterior
 			return (0); // return 0 por que no está ordenado
 		head = head->next; // Avanzar a la siguiente posicion
 	}
@@ -71,7 +71,7 @@ int	distance(t_list **stack, int index)
 	while (head)
 	{
 		if (head->index == index)
-			return ;
+			break ;
 		distance++;
 		head = head->next; // Recorrer el stack nodo a nodo
 	}

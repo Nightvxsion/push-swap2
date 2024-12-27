@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	push(t_list **stack_src, t_list **stack_dst)
 {
@@ -45,7 +45,7 @@ int	pa(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
-int	pa(t_list **stack_a, t_list **stack_b)
+int	pb(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_b, stack_a) == -1)
 		return (-1);

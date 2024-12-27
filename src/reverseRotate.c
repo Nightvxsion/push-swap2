@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	reverseRotate(t_list **stack)
 {
@@ -23,7 +23,7 @@ int	reverseRotate(t_list **stack)
 	end = ft_lstlast(head);
 	while (head)
 	{
-		if (head->next->next = NULL) // Encontrar el penultimo nodo
+		if (head->next->next == NULL) // Encontrar el penultimo nodo
 		{
 			head->next = NULL; // Accion de asignar el ultimo nodo
 			break;

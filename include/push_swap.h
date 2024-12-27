@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 typedef struct s_list
 {
@@ -55,4 +56,6 @@ int		distance(t_list **stack, int index);
 void	sort5(t_list **stack_a, t_list **stack_b);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
 void	radix(t_list **stack_a, t_list **stack_b);
+void	index_of_stack(t_list **stack_a);
+void	check_all_args(int argc, char **argv);
 #endif

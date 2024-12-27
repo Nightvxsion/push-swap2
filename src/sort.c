@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static int	get_min_val(t_list **stack, int val)
 {
@@ -22,7 +22,7 @@ static int	get_min_val(t_list **stack, int val)
 	while (head->next)
 	{
 		head = head->next; // Actualizamos al siguiente valor
-		if ((head->next < value) && head->next != value) // Si el siguiente valor NO ES menor que o igual que el valor a ignorar
+		if ((head->index < value) && head->index != val) // Si el siguiente valor NO ES menor que o igual que el valor a ignorar (parametro)
 			value = head->index; // Si se cumple entonces actualizamos la cabecera con el valor nuevo
 	}
 	return (value);
