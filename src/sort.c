@@ -16,19 +16,24 @@ static int	get_min_val(t_list **stack, int val)
 {
 	t_list	*head;
 	int		value; // Donde se almacena el valor ignorado
+	int		found; // Flag para indicar si se encuentra el valor minimo
 
 	head = *stack;
-	value = head->index;
-	while (head->next)
+	value = 0;
+	found = 0;
+	while (head)
 	{
-		head = head->next; // Actualizamos al siguiente valor
-		if ((head->index < value) && head->index != val) // Si el siguiente valor NO ES menor que o igual que el valor a ignorar (parametro)
+		if ((head->index != val) && (!found || head->index < value)) // Si el siguiente valor NO ES menor que o igual que el valor a ignorar (parametro)
+		{
 			value = head->index; // Si se cumple entonces actualizamos la cabecera con el valor nuevo
+			found = 1;
+		}
+		head = head->next;// Actualizamos al siguiente valor
 	}
 	return (value);
 }
 
-static void	sort3(t_list **stack)
+void	sort3(t_list **stack)
 {
 	t_list	*head;
 	int		min;
@@ -60,7 +65,7 @@ static void	sort3(t_list **stack)
 	}
 }
 
-static void	sort4(t_list **stack_a, t_list	**stack_b)
+/*static void	sort4(t_list **stack_a, t_list	**stack_b)
 {
 	int	len;
 
@@ -107,7 +112,7 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 	sort4(stack_a, stack_b);
 	pb(stack_a, stack_b);
-}
+}*/
 
 void	simple_sort(t_list **stack_a, t_list **stack_b)
 {
@@ -121,8 +126,24 @@ void	simple_sort(t_list **stack_a, t_list **stack_b)
 		sa(stack_a);
 	else if (size == 3)
 		sort3(stack_a);
-	else if (size == 4)
-		sort4(stack_a, stack_b);
-	else if (size == 5)
-		sort5(stack_a, stack_b);
+}
+
+void	insertion_sort(t_list **stack_a, t_list **stack_b)
+{
+	int		min_value;
+	int		index_distance;
+
+	while (ft_lstsize(*stack_a) > 0)
+	{
+		min_value = get_min_val(stack_a, -1);
+		index_distance = distance(stack_a, min_value);
+		if (index_distance == 0) // Si el minimo esta en la primera posicion
+			pb(stack_a, stack_b);
+		else if (index_distance <= ft_lstsize(*stack_a) / 2) // Si el minimo esta en el resto de la pila, lo ubicamos desde la mitad entre 2
+			ra(stack_a); 
+		else
+			rra(stack_a);
+	}
+	while(ft_lstsize(*stack_b) > 0)
+		pa(stack_a, stack_b);
 }

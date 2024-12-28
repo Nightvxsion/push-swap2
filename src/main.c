@@ -43,8 +43,10 @@ static void	init_of_stack(t_list **stack_a, int argc, char **argv)
 
 static void	choose_sort(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_a) <= 5)
-		simple_sort(stack_a, stack_b);
+	if (ft_lstsize(*stack_a) <= 3)
+		sort3(stack_a);
+	else if (ft_lstsize(*stack_a) <= 7)
+		insertion_sort(stack_a, stack_b);
 	else
 		radix(stack_a, stack_b);
 }

@@ -21,15 +21,9 @@ int	reverseRotate(t_list **stack)
 		return (-1);
 	head = *stack;
 	end = ft_lstlast(head);
-	while (head)
-	{
-		if (head->next->next == NULL) // Encontrar el penultimo nodo
-		{
-			head->next = NULL; // Accion de asignar el ultimo nodo
-			break;
-		}
+	while (head->next->next != NULL)
 		head = head->next; // Actualizar el siguiente nodo a posicion actual
-	}
+	head->next = NULL; // Accion de asignar el ultimo nodo
 	end->next = *stack;
 	*stack = end;
 	return (0);

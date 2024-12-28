@@ -71,7 +71,7 @@ int	distance(t_list **stack, int index)
 	while (head)
 	{
 		if (head->index == index)
-			break ;
+			return (distance);
 		distance++;
 		head = head->next; // Recorrer el stack nodo a nodo
 	}

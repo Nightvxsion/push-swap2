@@ -47,12 +47,13 @@ void	radix(t_list **stack_a, t_list **stack_b)
 	while(i < max_bit)
 	{
 		j = 0;
-		while(j++ < size) // Evalua desde la posicion actual de i el numero de nodos
+		while(j < size) // Evalua desde la posicion actual de i el numero de nodos
 		{
 			if(((head_a->index >> i) & 1) == 1) // Si tenemos por ejemplo 5 = 101 con i = 1 entonces (5 >> 1) & 1 != 1 entonces rota, (i es el numero de bits en binario)
 				ra(stack_a);
 			else
 				pb(stack_a, stack_b);
+			j++;
 		}
 		while(ft_lstsize(*stack_b) != 0) // Insertamos aristar guardadas
 			pa(stack_a, stack_b);
