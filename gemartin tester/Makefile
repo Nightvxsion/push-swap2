@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 SRCS = src/main.c \
 	src/push.c \
-	src/radix.c \
+	src/k_sort.c \
 	src/reverseRotate.c \
 	src/rotate.c \
 	src/sort.c \

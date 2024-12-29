@@ -55,8 +55,12 @@ int		rrr(t_list **stack_a, t_list **stack_b);
 int		distance(t_list **stack, int index);
 void	sort3(t_list **stack);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
-void	radix(t_list **stack_a, t_list **stack_b);
+//void	radix(t_list **stack_a, t_list **stack_b);
+void	move_a_to_b(t_list **stack_a, t_list **stack_b, int max, int min);
+void	move_b_to_a(t_list **stack_a, t_list **stack_b);
+void	k_sort(t_list **stack_a, t_list **stack_b, int k);
 void	index_of_stack(t_list **stack_a);
 void	check_all_args(int argc, char **argv);
 void	insertion_sort(t_list **stack_a, t_list **stack_b);
+
 #endif

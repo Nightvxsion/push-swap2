@@ -140,7 +140,7 @@ void	insertion_sort(t_list **stack_a, t_list **stack_b)
 		if (index_distance == 0) // Si el minimo esta en la primera posicion
 			pb(stack_a, stack_b);
 		else if (index_distance <= ft_lstsize(*stack_a) / 2) // Si el minimo esta en el resto de la pila, lo ubicamos desde la mitad entre 2
-			ra(stack_a); 
+			ra(stack_a);
 		else
 			rra(stack_a);
 	}
