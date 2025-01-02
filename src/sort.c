@@ -12,22 +12,17 @@
 
 #include "../include/push_swap.h"
 
-static int	get_min_val(t_list **stack, int val)
+int	get_min_val(t_list **stack, int val)
 {
 	t_list	*head;
 	int		value; // Donde se almacena el valor ignorado
-	int		found; // Flag para indicar si se encuentra el valor minimo
 
 	head = *stack;
-	value = 0;
-	found = 0;
+	value = __INT_MAX__;
 	while (head)
 	{
-		if ((head->index != val) && (!found || head->index < value)) // Si el siguiente valor NO ES menor que o igual que el valor a ignorar (parametro)
-		{
+		if (head->index != val && head->index < value) // Si el siguiente valor NO ES menor que o igual que el valor a ignorar (parametro)
 			value = head->index; // Si se cumple entonces actualizamos la cabecera con el valor nuevo
-			found = 1;
-		}
 		head = head->next;// Actualizamos al siguiente valor
 	}
 	return (value);
@@ -130,13 +125,11 @@ void	simple_sort(t_list **stack_a, t_list **stack_b)
 
 void	insertion_sort(t_list **stack_a, t_list **stack_b)
 {
-	int		min_value;
 	int		index_distance;
 
 	while (ft_lstsize(*stack_a) > 0)
 	{
-		min_value = get_min_val(stack_a, -1);
-		index_distance = distance(stack_a, min_value);
+		index_distance = distance(stack_a);
 		if (index_distance == 0) // Si el minimo esta en la primera posicion
 			pb(stack_a, stack_b);
 		else if (index_distance <= ft_lstsize(*stack_a) / 2) // Si el minimo esta en el resto de la pila, lo ubicamos desde la mitad entre 2

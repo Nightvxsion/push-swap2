@@ -39,7 +39,7 @@ int	check_sort(t_list **lst)
 	head = *lst;
 	while (head && head->next) // Mientras exista una lista y su siguiente
 	{
-		if (head->value > head->next->value) // Si el siguiente elemento es mayor que el anterior
+		if (head->index > head->next->index) // Si el siguiente elemento es mayor que el anterior
 			return (0); // return 0 por que no está ordenado
 		head = head->next; // Avanzar a la siguiente posicion
 	}
@@ -61,16 +61,18 @@ void	free_stack(t_list **stack)
 	free(stack); // Liberamos EL PUNTERO de la direccion del stack
 }
 
-int	distance(t_list **stack, int index)
+int	distance(t_list **stack)
 {
 	t_list	*head;
 	int		distance;
+	int		min_val;
 
 	distance = 0;
 	head = *stack;
+	min_val = get_min_val(stack, -1); // Consigue el indice minimo
 	while (head)
 	{
-		if (head->index == index)
+		if (head->index == min_val)
 			return (distance);
 		distance++;
 		head = head->next; // Recorrer el stack nodo a nodo

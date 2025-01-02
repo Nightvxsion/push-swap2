@@ -52,7 +52,7 @@ int		reverseRotate(t_list **stack);
 int		rra(t_list **stack_a);
 int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
-int		distance(t_list **stack, int index);
+int		distance(t_list **stack);
 void	sort3(t_list **stack);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
 //void	radix(t_list **stack_a, t_list **stack_b);
@@ -62,5 +62,6 @@ void	k_sort(t_list **stack_a, t_list **stack_b, int k);
 void	index_of_stack(t_list **stack_a);
 void	check_all_args(int argc, char **argv);
 void	insertion_sort(t_list **stack_a, t_list **stack_b);
+int		get_min_val(t_list **stack, int val);
 
 #endif

@@ -48,14 +48,14 @@ static void	choose_sort(t_list **stack_a, t_list **stack_b)
 	size = ft_lstsize(*stack_a);
 	if (size <= 3)
 		sort3(stack_a);
-	else if (size <= 7)
+	else if (size <= 11)
 		insertion_sort(stack_a, stack_b);
 	else
 	{
 		if (size <= 100)
-			k = 5;
+			k = 2;
 		else
-			k = size / 20;
+			k = size / 50;
 		k_sort(stack_a, stack_b, k);
 	}
 }
