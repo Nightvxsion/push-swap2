@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:21:05 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/26 23:21:05 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/08 08:56:05 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ static void	choose_sort(t_list **stack_a, t_list **stack_b)
 	else
 	{
 		if (size <= 100)
-			k = 2;
+			k = 6;
 		else
-			k = size / 50;
+			k = size / 10;
 		k_sort(stack_a, stack_b, k);
 	}
 }

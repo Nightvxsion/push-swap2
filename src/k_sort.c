@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 23:10:08 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/29 23:10:08 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/08 09:10:39 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ void	k_sort(t_list **stack_a, t_list **stack_b, int k)
 	int	subgroup_size;
 	int	min;
 	int	max;
+	int	leng;
 
 	total_nodes = ft_lstsize(*stack_a);
 	subgroup_size = calc_subgroup_size(total_nodes, k);
 	min = 0;
 	max = subgroup_size - 1;
+	leng = distance(stack_a)
 	while (min < total_nodes)
 	{
 		move_a_to_b(stack_a, stack_b, min, max);

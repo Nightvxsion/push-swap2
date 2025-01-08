@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:52:39 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/17 20:52:39 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/08 09:08:27 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,23 @@ int	distance(t_list **stack)
 		head = head->next; // Recorrer el stack nodo a nodo
 	}
 	return (distance);
+}
+
+void	make_top(t_list **stack, int distance)
+{
+	t_list	*tmp;
+	int		leng;
+
+	tmp = *stack;
+	leng = ft_lstsize(tmp) - leng;
+	if (leng <= (ft_lstsize(tmp) / 2))
+	{
+		while(leng-- > 0)
+			ra(stack);
+	}
+	else
+	{
+		while(tmp-- > 0)
+			rra(stack);
+	}
 }

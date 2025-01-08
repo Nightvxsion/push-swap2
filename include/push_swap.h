@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:25:33 by marcgar2          #+#    #+#             */
-/*   Updated: 2024/12/17 20:25:33 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/08 09:08:46 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	simple_sort(t_list **stack_a, t_list **stack_b);
 void	move_a_to_b(t_list **stack_a, t_list **stack_b, int max, int min);
 void	move_b_to_a(t_list **stack_a, t_list **stack_b);
 void	k_sort(t_list **stack_a, t_list **stack_b, int k);
+void	make_top(t_list **stack, int distance);
 void	index_of_stack(t_list **stack_a);
 void	check_all_args(int argc, char **argv);
 void	insertion_sort(t_list **stack_a, t_list **stack_b);
