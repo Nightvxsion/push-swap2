@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:52:39 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/08 09:08:27 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/09 19:06:35 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,21 +80,22 @@ int	distance(t_list **stack)
 	return (distance);
 }
 
-void	make_top(t_list **stack, int distance)
+void	make_top(t_list **stack, int target_pos)
 {
-	t_list	*tmp;
+	int		stack_elem;
 	int		leng;
 
-	tmp = *stack;
-	leng = ft_lstsize(tmp) - leng;
-	if (leng <= (ft_lstsize(tmp) / 2))
+	stack_elem = ft_lstsize(*stack);
+	leng = target_pos;
+	if (leng <= (stack_elem / 2))
 	{
 		while(leng-- > 0)
 			ra(stack);
 	}
 	else
 	{
-		while(tmp-- > 0)
+		leng = stack_elem - target_pos;
+		while(leng-- > 0)
 			rra(stack);
 	}
 }
